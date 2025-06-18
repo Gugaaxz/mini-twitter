@@ -29,7 +29,11 @@ export default function Home() {
   /* ─────────── UI ─────────── */
   return (
     <main className="max-w-md mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Mini-Twitter</h1>
+      <header className="bg-blue-500 text-white py-3 mb-6 sticky top-0 z-10">
+         <h1 className="max-w-md mx-auto text-xl font-semibold">
+             Mini-Twitter
+          </h1>
+      </header>
 
       <textarea
         className="w-full border rounded p-2 mb-2"
@@ -47,7 +51,7 @@ export default function Home() {
 
       <ul className="space-y-4">
         {tweets.map(t => (
-          <li key={t.id} className="border rounded p-3">
+          <li key={t.id} className="border rounded-lg p-3 shadow-sm">
             <p className="mb-2">{t.text}</p>
 
             <button
@@ -55,6 +59,12 @@ export default function Home() {
               className="text-sm text-gray-500 hover:text-blue-600"
             >
               ❤️ {t.likes}
+            </button>
+            <button
+              onClick={() =>  setTweets(tweets.filter(x => x.id !== t.id)) }
+              className="ml-4 text-sm text-red-500 hover:text-red-700"
+            >
+               🗑
             </button>
           </li>
         ))}
