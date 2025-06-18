@@ -80,7 +80,7 @@ async function like(id) {
     if (error) return alert(error.message);
     setTweets(tweets.filter(t => t.id !== id));
   }
-  console.log('URL 👉', process.env.NEXT_PUBLIC_SUPABASE_URL);
+ 
   /* ---------- UI ---------- */
   return (
     <main className="max-w-md mx-auto p-4">
